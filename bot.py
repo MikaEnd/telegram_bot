@@ -72,13 +72,14 @@ async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
 
     service = context.args[0]
-    await update.message.reply_text(f"♻️ Перезапускаю {service}...")
+    await update.message.reply_text(f"♻️ Перезапуск `{service}`...")
+
     result = os.system(f"sudo systemctl restart {service}")
 
     if result == 0:
-        await update.message.reply_text(f"✅ Сервис {service} перезапущен.")
+        await update.message.reply_text(f"✅ Сервис `{service}` успешно перезапущен.")
     else:
-        await update.message.reply_text(f"❌ Ошибка при перезапуске {service}.")
+        await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
 
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
