@@ -252,3 +252,7 @@ RuntimeError: Cannot close a running event loop
 2025-04-30 02:30:48,263 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-04-30 02:30:58,313 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-04-30 02:31:08,362 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-04-30 02:31:18,410 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-04-30 02:31:23,438 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-04-30 02:31:23,439 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-04-30 02:31:23,439 - telegram.ext.Application - INFO - Application.stop() complete
