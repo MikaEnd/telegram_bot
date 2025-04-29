@@ -1,4 +1,4 @@
-лimport os
+import os
 import subprocess
 import logging
 from telegram import Update
@@ -106,4 +106,3 @@ if __name__ == "__main__":
         asyncio.run(main())
     except Exception as e:
         logger.exception("❌ Ошибка при запуске бота: %s", e)
-
