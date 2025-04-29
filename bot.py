@@ -1,26 +1,22 @@
 import os
 import logging
-import asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
-from telegram.constants import ChatAction
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO,
-    filename='logs/telegram_bot.log'
+    level=logging.INFO
 )
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-ADMIN_ID = int(os.getenv("ADMIN_TELEGRAM_ID", "0"))
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
-        "Привет! Я ManagerBot.\nКоманды:\n"
+        "Привет! Я ManagerBot.\n"
+        "Команды:\n"
         "/status — Сводка\n"
         "/services — systemd\n"
         "/processes — топ процессов\n"
-        "/restart_service [name] — перезапуск\n"
         "/uptime /cpu /memory /disk"
     )
 
@@ -45,6 +41,7 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     cpu = os.popen("top -bn1 | grep 'Cpu(s)'").read().strip()
     mem = os.popen("free -h").read().strip()
     disk = os.popen("df -h").read().strip()
+
     status_message = f"""📊 Статус сервера:
 
 🕒 Аптайм:
@@ -69,29 +66,6 @@ async def processes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("ps aux --sort=-%mem | head -n 10").read()
     await update.message.reply_text(f"📈 Топ процессов по памяти:\n{output}")
 
-async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = update.effective_user.id
-    if user_id != ADMIN_ID:
-        await update.message.reply_text("⛔ Доступ запрещён.")
-        return
-
-    if not context.args:
-        await update.message.reply_text("⚠️ Укажите имя сервиса: /restart_service nginx")
-        return
-
-    service = context.args[0]
-    await update.message.reply_text(f"♻️ Перезапуск `{service}`...")
-
-    result = os.system(f"sudo systemctl restart {service}")
-
-    if result == 0:
-        await update.message.reply_text(f"✅ Сервис `{service}` успешно перезапущен.")
-        # Подождать 3 секунды и вызвать /status
-        await asyncio.sleep(3)
-        await status(update, context)
-    else:
-        await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
-
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
 
@@ -103,7 +77,6 @@ def main():
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("services", services))
     app.add_handler(CommandHandler("processes", processes))
-    app.add_handler(CommandHandler("restart_service", restart_service))
 
     app.run_polling()
 
