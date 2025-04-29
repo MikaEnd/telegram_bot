@@ -7,14 +7,25 @@ from telegram.constants import ChatAction
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
-    filename='logs/telegram_bot.log'
+    handlers=[
+        logging.FileHandler("logs/telegram_bot.log"),
+        logging.StreamHandler()
+    ]
 )
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_TELEGRAM_ID", "0"))
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет! Я ManagerBot.\nКоманды:\n/status — Сводка\n/services — systemd\n/processes — топ процессов\n/restart_service [name] — перезапуск\n/uptime /cpu /memory /disk")
+    await update.message.reply_text(
+        "Привет! Я ManagerBot.\n"
+        "Команды:\n"
+        "/status — Сводка\n"
+        "/services — systemd\n"
+        "/processes — топ процессов\n"
+        "/restart_service [name] — перезапуск\n"
+        "/uptime /cpu /memory /disk"
+    )
 
 async def uptime(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("uptime -p").read()
@@ -79,11 +90,12 @@ async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if result == 0:
         await update.message.reply_text(f"✅ Сервис `{service}` успешно перезапущен.")
+        # вызов команды статус как подтверждение
+        await status(update, context)
     else:
         await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
 
 def main():
-    logging.info("✅ Бот запущен!")
     app = ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
