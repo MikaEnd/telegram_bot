@@ -10,31 +10,25 @@ logging.basicConfig(
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
-# /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет! Я ManagerBot.\nКоманды:\n/status — Сводка\n/services — systemd-службы\n/uptime /cpu /memory /disk")
+    await update.message.reply_text("Привет! Я ManagerBot.\nКоманды:\n/status — Сводка\n/services — systemd\n/processes — топ процессов\n/uptime /cpu /memory /disk")
 
-# /uptime
 async def uptime(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("uptime -p").read()
     await update.message.reply_text(f"🕒 Аптайм сервера:\n{output}")
 
-# /cpu
 async def cpu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("top -bn1 | grep 'Cpu(s)'").read()
     await update.message.reply_text(f"⚙️ Загрузка CPU:\n{output}")
 
-# /memory
 async def memory(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("free -h").read()
     await update.message.reply_text(f"🧠 Использование памяти:\n{output}")
 
-# /disk
 async def disk(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("df -h").read()
     await update.message.reply_text(f"💽 Использование дисков:\n{output}")
 
-# /status
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uptime = os.popen("uptime -p").read().strip()
     cpu = os.popen("top -bn1 | grep 'Cpu(s)'").read().strip()
@@ -57,10 +51,13 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
 """
     await update.message.reply_text(status_message)
 
-# /services
 async def services(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("systemctl list-units --type=service --no-pager --state=running | head -n 20").read()
     await update.message.reply_text(f"🧩 Активные systemd-сервисы (первые 20):\n{output}")
+
+async def processes(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    output = os.popen("ps aux --sort=-%mem | head -n 10").read()
+    await update.message.reply_text(f"📈 Топ процессов по памяти:\n{output}")
 
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
@@ -72,6 +69,7 @@ def main():
     app.add_handler(CommandHandler("disk", disk))
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("services", services))
+    app.add_handler(CommandHandler("processes", processes))
 
     app.run_polling()
 
