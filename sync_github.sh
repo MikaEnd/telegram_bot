@@ -1,0 +1,1 @@
+/home/avipython/sync_github.sh
