@@ -1,12 +1,22 @@
 import os
 import subprocess
+import logging
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, CallbackContext
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 ADMIN_ID = int(os.getenv("ADMIN_TELEGRAM_ID"))
 
+# Настройка логирования
+logging.basicConfig(
+    filename='logs/telegram_bot.log',
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
+)
+logger = logging.getLogger(__name__)
+
 def start(update: Update, context: CallbackContext):
+    logger.info("Команда /start от %s", update.effective_user.id)
     update.message.reply_text(
         "Привет! Я ManagerBot.\n"
         "Команды:\n"
@@ -18,31 +28,38 @@ def start(update: Update, context: CallbackContext):
     )
 
 def uptime(update: Update, context: CallbackContext):
+    logger.info("Команда /uptime")
     result = subprocess.run(['uptime', '-p'], capture_output=True, text=True)
     update.message.reply_text(f"🕒 Аптайм сервера:\n{result.stdout.strip()}")
 
 def cpu(update: Update, context: CallbackContext):
+    logger.info("Команда /cpu")
     result = subprocess.run("top -bn1 | grep 'Cpu(s)'", shell=True, capture_output=True, text=True)
     update.message.reply_text(f"⚙️ Загрузка CPU:\n{result.stdout.strip()}")
 
 def memory(update: Update, context: CallbackContext):
+    logger.info("Команда /memory")
     result = subprocess.run(['free', '-h'], capture_output=True, text=True)
     update.message.reply_text(f"🧠 Использование памяти:\n{result.stdout.strip()}")
 
 def disk(update: Update, context: CallbackContext):
+    logger.info("Команда /disk")
     result = subprocess.run(['df', '-h'], capture_output=True, text=True)
     update.message.reply_text(f"💽 Использование дисков:\n{result.stdout.strip()}")
 
 def services(update: Update, context: CallbackContext):
+    logger.info("Команда /services")
     result = subprocess.run(['systemctl', 'list-units', '--type=service', '--state=running', '--no-pager'], capture_output=True, text=True)
     services = '\n'.join(result.stdout.strip().split('\n')[:20])
     update.message.reply_text(f"🧩 Активные systemd-сервисы (первые 20):\n{services}")
 
 def processes(update: Update, context: CallbackContext):
+    logger.info("Команда /processes")
     result = subprocess.run("ps aux --sort=-%mem | head -n 10", shell=True, capture_output=True, text=True)
     update.message.reply_text(f"📈 Топ процессов по памяти:\n{result.stdout.strip()}")
 
 def restart_service(update: Update, context: CallbackContext):
+    logger.info("Команда /restart_service")
     args = context.args
     if not args:
         update.message.reply_text("⚠️ Укажите имя сервиса: /restart_service nginx")
@@ -62,6 +79,7 @@ def status(update: Update, context: CallbackContext):
     disk(update, context)
 
 def main():
+    logger.info("Запуск бота...")
     updater = Updater(TOKEN)
     dp = updater.dispatcher
 
@@ -79,4 +97,7 @@ def main():
     updater.idle()
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        logger.exception("❌ Ошибка при запуске бота: %s", e)
