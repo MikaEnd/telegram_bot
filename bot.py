@@ -2,6 +2,7 @@ import os
 import logging
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.constants import ChatAction
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -9,9 +10,10 @@ logging.basicConfig(
 )
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_TELEGRAM_ID", "0"))
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Привет! Я ManagerBot.\nКоманды:\n/status — Сводка\n/services — systemd\n/processes — топ процессов\n/uptime /cpu /memory /disk")
+    await update.message.reply_text("Привет! Я ManagerBot.\nКоманды:\n/status — Сводка\n/services — systemd\n/processes — топ процессов\n/restart_service [name] — перезапуск\n/uptime /cpu /memory /disk")
 
 async def uptime(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("uptime -p").read()
@@ -59,6 +61,25 @@ async def processes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("ps aux --sort=-%mem | head -n 10").read()
     await update.message.reply_text(f"📈 Топ процессов по памяти:\n{output}")
 
+async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    user_id = update.effective_user.id
+    if user_id != ADMIN_ID:
+        await update.message.reply_text("⛔ Доступ запрещён.")
+        return
+
+    if not context.args:
+        await update.message.reply_text("⚠️ Укажите имя сервиса: /restart_service nginx")
+        return
+
+    service = context.args[0]
+    await update.message.reply_text(f"♻️ Перезапускаю {service}...")
+    result = os.system(f"sudo systemctl restart {service}")
+
+    if result == 0:
+        await update.message.reply_text(f"✅ Сервис {service} перезапущен.")
+    else:
+        await update.message.reply_text(f"❌ Ошибка при перезапуске {service}.")
+
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
 
@@ -70,6 +91,7 @@ def main():
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("services", services))
     app.add_handler(CommandHandler("processes", processes))
+    app.add_handler(CommandHandler("restart_service", restart_service))
 
     app.run_polling()
 
