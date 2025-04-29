@@ -16,3 +16,101 @@ Traceback (most recent call last):
     updater = Updater(TOKEN)
               ^^^^^^^^^^^^^^
 TypeError: Updater.__init__() missing 1 required positional argument: 'update_queue'
+2025-04-30 02:10:39,403 - INFO - ✅ Бот запущен!
+2025-04-30 02:10:39,404 - ERROR - ❌ Ошибка при запуске бота: Cannot close a running event loop
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1042, in __run
+    loop.run_until_complete(self._bootstrap_initialize(max_retries=bootstrap_retries))
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 663, in run_until_complete
+    self._check_running()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 622, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1067, in __run
+    loop.run_until_complete(self.shutdown())
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 663, in run_until_complete
+    self._check_running()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 622, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/bot.py", line 106, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/bot.py", line 101, in main
+    await app.run_polling()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 832, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1072, in __run
+    loop.close()
+  File "/usr/lib/python3.12/asyncio/unix_events.py", line 68, in close
+    super().close()
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 101, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
+2025-04-30 02:11:49,086 - INFO - ✅ Бот запущен!
+2025-04-30 02:11:49,100 - ERROR - ❌ Ошибка при запуске бота: Cannot close a running event loop
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1042, in __run
+    loop.run_until_complete(self._bootstrap_initialize(max_retries=bootstrap_retries))
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 663, in run_until_complete
+    self._check_running()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 622, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1067, in __run
+    loop.run_until_complete(self.shutdown())
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 663, in run_until_complete
+    self._check_running()
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 622, in _check_running
+    raise RuntimeError('This event loop is already running')
+RuntimeError: This event loop is already running
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/bot.py", line 106, in <module>
+    asyncio.run(main())
+  File "/usr/lib/python3.12/asyncio/runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/asyncio/base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/bot.py", line 101, in main
+    await app.run_polling()
+          ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 832, in run_polling
+    return self.__run(
+           ^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 1072, in __run
+    loop.close()
+  File "/usr/lib/python3.12/asyncio/unix_events.py", line 68, in close
+    super().close()
+  File "/usr/lib/python3.12/asyncio/selector_events.py", line 101, in close
+    raise RuntimeError("Cannot close a running event loop")
+RuntimeError: Cannot close a running event loop
