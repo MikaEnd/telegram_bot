@@ -6,7 +6,8 @@ from telegram.constants import ChatAction
 
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
+    level=logging.INFO,
+    filename='logs/telegram_bot.log'
 )
 
 TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
@@ -82,6 +83,7 @@ async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
 
 def main():
+    logging.info("✅ Бот запущен!")
     app = ApplicationBuilder().token(TOKEN).build()
 
     app.add_handler(CommandHandler("start", start))
