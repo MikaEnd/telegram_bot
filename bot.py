@@ -1,5 +1,6 @@
 import os
 import logging
+import threading
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.constants import ChatAction
@@ -61,6 +62,9 @@ async def processes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("ps aux --sort=-%mem | head -n 10").read()
     await update.message.reply_text(f"📈 Топ процессов по памяти:\n{output}")
 
+def delayed_restart(service):
+    os.system(f"sudo systemctl restart {service}")
+
 async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     if user_id != ADMIN_ID:
@@ -74,12 +78,8 @@ async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
     service = context.args[0]
     await update.message.reply_text(f"♻️ Перезапуск `{service}`...")
 
-    result = os.system(f"sudo systemctl restart {service}")
-
-    if result == 0:
-        await update.message.reply_text(f"✅ Сервис `{service}` успешно перезапущен.")
-    else:
-        await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
+    # Отложенный перезапуск через 2 секунды
+    threading.Timer(2.0, delayed_restart, args=[service]).start()
 
 def main():
     app = ApplicationBuilder().token(TOKEN).build()
