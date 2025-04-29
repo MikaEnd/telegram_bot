@@ -1,116 +1,52 @@
 import os
-import re
 import logging
 from telegram import Update
-from telegram.ext import Application, CommandHandler, ContextTypes
-import paramiko
-import requests
-from dotenv import load_dotenv
-from datetime import datetime
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-# ✅ Импорт менеджера
-from bots.manager.manager_bot import ManagerBot
-
-# Загрузка переменных окружения
-load_dotenv()
-BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
-DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY")
-SSH_KEY_PATH = os.getenv("SSH_KEY_PATH", "/home/avipython/.ssh/id_ed25519")
-ADMIN_ID = os.getenv("ADMIN_TELEGRAM_ID", "346399418")
-
-# Менеджер задач
-manager = ManagerBot()
-
-# Настройка логов
+# Настройка логирования
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-    level=logging.INFO,
-    handlers=[
-        logging.FileHandler("/home/avipython/telegram_bot/bot.log"),
-        logging.StreamHandler()
-    ]
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    level=logging.INFO
 )
-logger = logging.getLogger(__name__)
 
-def log_action(user_id: str, action: str, result: str = ""):
-    with open("/home/avipython/telegram_bot/actions.log", "a") as f:
-        f.write(f"[{datetime.now()}] User:{user_id} | {action}\n")
-        if result:
-            f.write(f"Результат: {result}\n\n")
+# Токен бота
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
-def clean_command(raw_command: str) -> str:
-    return re.sub(r'```(bash)?|```', '', raw_command).strip()
-
-def execute_ssh_command(command: str) -> str:
-    try:
-        key = paramiko.Ed25519Key.from_private_key_file(SSH_KEY_PATH)
-        client = paramiko.SSHClient()
-        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        client.connect("localhost", username="avipython", pkey=key)
-
-        stdin, stdout, stderr = client.exec_command(command)
-        output = stdout.read().decode().strip()
-        error = stderr.read().decode().strip()
-        client.close()
-
-        return output if output else error or "Команда выполнена успешно"
-    except Exception as e:
-        return f"SSH error: {str(e)}"
-
+# Команда /start
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = str(update.effective_user.id)
-    log_action(user_id, "Command /start")
+    await update.message.reply_text('Привет! Я ManagerBot. Список доступных команд: /uptime /disk /memory /cpu')
 
-    text = (
-        "🖥️ Я ИИ-администратор вашего сервера\n\n"
-        "Доступные команды:\n"
-        "/status - состояние сервера\n"
-        "/ask <задача> - передать менеджеру задачу\n\n"
-        "Пример:\n/ask настрой Nginx для сайта"
-    )
-    await update.message.reply_text(text)
+# Команда /uptime
+async def uptime(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    output = os.popen('uptime -p').read()
+    await update.message.reply_text(f"🕒 Аптайм сервера:\n{output}")
 
-async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = str(update.effective_user.id)
+# Команда /disk
+async def disk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    output = os.popen('df -h').read()
+    await update.message.reply_text(f"💽 Использование дисков:\n{output}")
 
-    if not context.args:
-        log_action(user_id, "Empty /ask command")
-        await update.message.reply_text("Введите задачу после /ask")
-        return
+# Команда /memory
+async def memory(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    output = os.popen('free -h').read()
+    await update.message.reply_text(f"🧠 Использование памяти:\n{output}")
 
-    question = " ".join(context.args)
-    log_action(user_id, f"🧠 Задача менеджеру: {question}")
+# Команда /cpu
+async def cpu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    output = os.popen('top -bn1 | grep "Cpu(s)"').read()
+    await update.message.reply_text(f"⚙️ Загрузка CPU:\n{output}")
 
-    try:
-        response = manager.handle_user_task(question)
-        await update.message.reply_text(response, parse_mode="HTML")
-    except Exception as e:
-        error_msg = f"❌ Ошибка: {str(e)}"
-        log_action(user_id, error_msg)
-        await update.message.reply_text(error_msg)
-
-async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    user_id = str(update.effective_user.id)
-    if user_id != ADMIN_ID:
-        await update.message.reply_text("❌ Доступ запрещен")
-        return
-
-    log_action(user_id, "Command /status")
-    output = execute_ssh_command("df -h && free -h")
-    await update.message.reply_text(f"📊 <b>Статус сервера:</b>\n<code>{output}</code>", parse_mode="HTML")
-
+# Основной запуск
 def main():
-    try:
-        app = Application.builder().token(BOT_TOKEN).build()
-        app.add_handler(CommandHandler("start", start))
-        app.add_handler(CommandHandler("ask", ask))
-        app.add_handler(CommandHandler("status", status))
+    app = ApplicationBuilder().token(TOKEN).build()
 
-        logger.info("Bot starting...")
-        app.run_polling()
-    except Exception as e:
-        logger.critical(f"Fatal error: {str(e)}")
-        raise
+    app.add_handler(CommandHandler("start", start))
+    app.add_handler(CommandHandler("uptime", uptime))
+    app.add_handler(CommandHandler("disk", disk))
+    app.add_handler(CommandHandler("memory", memory))
+    app.add_handler(CommandHandler("cpu", cpu))
 
-if __name__ == "__main__":
+    app.run_polling()
+
+if __name__ == '__main__':
     main()
