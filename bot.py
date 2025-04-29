@@ -1,5 +1,6 @@
 import os
 import logging
+import subprocess
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from telegram.constants import ChatAction
@@ -29,19 +30,19 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def uptime(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("uptime -p").read()
-    await update.message.reply_text(f"🕒 Аптайм сервера:\n{output}")
+    await update.message.reply_text(f"\U0001F552 Аптайм сервера:\n{output}")
 
 async def cpu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("top -bn1 | grep 'Cpu(s)'").read()
-    await update.message.reply_text(f"⚙️ Загрузка CPU:\n{output}")
+    await update.message.reply_text(f"\u2699\ufe0f Загрузка CPU:\n{output}")
 
 async def memory(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("free -h").read()
-    await update.message.reply_text(f"🧠 Использование памяти:\n{output}")
+    await update.message.reply_text(f"\U0001F9E0 Использование памяти:\n{output}")
 
 async def disk(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("df -h").read()
-    await update.message.reply_text(f"💽 Использование дисков:\n{output}")
+    await update.message.reply_text(f"\U0001F4BD Использование дисков:\n{output}")
 
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     uptime = os.popen("uptime -p").read().strip()
@@ -49,29 +50,29 @@ async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     mem = os.popen("free -h").read().strip()
     disk = os.popen("df -h").read().strip()
 
-    status_message = f"""📊 Статус сервера:
+    status_message = f"""\U0001F4CA Статус сервера:
 
-🕒 Аптайм:
+\U0001F552 Аптайм:
 {uptime}
 
-⚙️ CPU:
+\u2699\ufe0f CPU:
 {cpu}
 
-🧠 Память:
+\U0001F9E0 Память:
 {mem}
 
-💽 Диск:
+\U0001F4BD Диск:
 {disk}
 """
     await update.message.reply_text(status_message)
 
 async def services(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("systemctl list-units --type=service --no-pager --state=running | head -n 20").read()
-    await update.message.reply_text(f"🧩 Активные systemd-сервисы (первые 20):\n{output}")
+    await update.message.reply_text(f"\U0001F9E9 Активные systemd-сервисы (первые 20):\n{output}")
 
 async def processes(update: Update, context: ContextTypes.DEFAULT_TYPE):
     output = os.popen("ps aux --sort=-%mem | head -n 10").read()
-    await update.message.reply_text(f"📈 Топ процессов по памяти:\n{output}")
+    await update.message.reply_text(f"\U0001F4C8 Топ процессов по памяти:\n{output}")
 
 async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
@@ -90,8 +91,13 @@ async def restart_service(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if result == 0:
         await update.message.reply_text(f"✅ Сервис `{service}` успешно перезапущен.")
-        # вызов команды статус как подтверждение
-        await status(update, context)
+
+        if service == "telegram_bot":
+            chat_id = update.effective_chat.id
+            subprocess.Popen([
+                "bash", "-c",
+                f"sleep 5 && curl -s -X POST https://api.telegram.org/bot{TOKEN}/sendMessage -d chat_id={chat_id} -d text='/status'"
+            ])
     else:
         await update.message.reply_text(f"❌ Ошибка при перезапуске `{service}`. Код: {result}")
 
