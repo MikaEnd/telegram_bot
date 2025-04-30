@@ -21,11 +21,7 @@ logging.basicConfig(
 
 # Команда: /status
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("📊 Статус сервера:\n(будет реализовано)")
-
-# Команда: /cpu
-async def cpu(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("⚙️ Загрузка CPU:\n(будет реализовано)")
+    await update.message.reply_text("✅ Бот запущен и работает!")
 
 # Команда: /ask <текст запроса>
 async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -44,8 +40,8 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
+    # Обработчики команд
     app.add_handler(CommandHandler("status", status))
-    app.add_handler(CommandHandler("cpu", cpu))
     app.add_handler(CommandHandler("ask", ask))
 
     app.run_polling()
