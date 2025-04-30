@@ -1851,3 +1851,213 @@ Traceback (most recent call last):
   File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
     raise NetworkError(description or "Bad Gateway")
 telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:11,831 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 502 Bad Gateway"
+2025-05-01 02:23:11,831 - telegram.ext.Updater - ERROR - Error while calling `get_updates` one more time to mark all fetched updates as read: %s. Suppressing error to ensure graceful shutdown. When polling for updates is restarted, updates may be fetched again. Please adjust timeouts via `ApplicationBuilder` or the parameter `get_updates_request` of `Bot`.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_updater.py", line 394, in _get_updates_cleanup
+    await self.bot.get_updates(
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 658, in get_updates
+    updates = await super().get_updates(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 4593, in get_updates
+    await self._post(
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:11,832 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-05-01 02:23:11,832 - telegram.ext.Application - INFO - Application.stop() complete
+2025-05-01 02:23:12,368 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 502 Bad Gateway"
+2025-05-01 02:23:12,368 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:13,023 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 502 Bad Gateway"
+2025-05-01 02:23:13,024 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:13,760 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 502 Bad Gateway"
+2025-05-01 02:23:13,760 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:14,402 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 502 Bad Gateway"
+2025-05-01 02:23:14,402 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Failed run number 0 of 0. Aborting.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 357, in _request_wrapper
+    raise NetworkError(description or "Bad Gateway")
+telegram.error.NetworkError: Bad Gateway
+2025-05-01 02:23:58,678 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 02:23:58,726 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 02:23:58,727 - telegram.ext.Application - INFO - Application started
+2025-05-01 02:23:58,883 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:23:58,964 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:23:59,044 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:23:59,117 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:24:08,937 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:09,186 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:09,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:24:17,253 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:17,423 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:24:27,307 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:37,365 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:47,418 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:24:57,471 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:07,526 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:12,770 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:12,770 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-05-01 02:25:12,770 - telegram.ext.Application - INFO - Application.stop() complete
+2025-05-01 02:25:13,288 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 02:25:13,338 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 02:25:13,339 - telegram.ext.Application - INFO - Application started
+2025-05-01 02:25:23,494 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:27,751 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:27,931 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:25:32,219 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:32,291 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 02:25:42,274 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:25:52,327 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:02,380 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:12,432 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:22,484 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:32,536 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:42,589 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:26:52,641 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:27:02,693 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:27:12,745 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 02:27:22,798 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
