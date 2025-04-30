@@ -16,7 +16,7 @@ class BotHandler(ABC):
 RABBITMQ_URL = os.getenv("RABBITMQ_URL", "amqp://guest:guest@localhost:5672/")
 TASK_QUEUE    = os.getenv("TASK_QUEUE", "tasks")
 
-def send_task(role: str, text: str) -> None:
+def send_task(role: str, text: str, chat_id: int) -> None:
     """
     Кладём задачу в очередь RabbitMQ для координатора.
     """
@@ -24,7 +24,11 @@ def send_task(role: str, text: str) -> None:
     connection = pika.BlockingConnection(parameters)
     channel = connection.channel()
     channel.queue_declare(queue=TASK_QUEUE, durable=True)
-    message = json.dumps({"role": role, "text": text})
+    message = json.dumps({
+        "role": role,
+        "text": text,
+        "chat_id": chat_id
+    })
     channel.basic_publish(
         exchange="",
         routing_key=TASK_QUEUE,
