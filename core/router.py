@@ -1,14 +1,17 @@
-from core.interfaces import BotHandler
+# core/router.py
 
-class TaskRouter:
-    def __init__(self):
-        self.handlers: list[BotHandler] = []
+def route_task(text: str) -> str:
+    """
+    Простейшая маршрутизация: определяем, какой подбот (компетенция) должен выполнить задачу.
+    В будущем здесь будет использоваться NLP/ИИ, а пока — ключевые слова.
+    """
+    text_lower = text.lower()
 
-    def add_handler(self, handler: BotHandler):
-        self.handlers.append(handler)
-
-    def route(self, task_description: str) -> str:
-        for handler in self.handlers:
-            if handler.can_handle(task_description):
-                return handler.handle(task_description)
-        return "❌ Не найден подходящий исполнитель для задачи."
+    if any(word in text_lower for word in ["nginx", "настрой", "html", "бот", "лендинг", "скрипт"]):
+        return "developer"
+    elif any(word in text_lower for word in ["договор", "юрист", "право", "аренда", "проверить документ"]):
+        return "legal"
+    elif any(word in text_lower for word in ["найди", "поиск", "собери", "инфо", "аналитику", "исследуй"]):
+        return "search"
+    else:
+        return "manager"  # по умолчанию — не знает кому, оставляет себе
