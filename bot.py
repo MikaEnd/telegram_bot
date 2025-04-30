@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 from core.router import route_task
-#from core.interfaces import send_task  # временно отключаем очередь
+from core.interfaces import send_task   # восстановили импорт
 
 # Загружаем переменные окружения
 load_dotenv()
@@ -25,11 +25,17 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if context.args:
         user_query = " ".join(context.args)
         role = route_task(user_query)
-        # вместо send_task(role, user_query) просто отвечаем:
+        try:
+            send_task(role, user_query)
+            forward_msg = "📨 Передал задачу в очередь, ожидайте результат."
+        except Exception as e:
+            logging.error(f"send_task failed: {e}", exc_info=True)
+            forward_msg = "⚠️ Не удалось отправить задачу в очередь, попробуйте позже."
+
         response = (
             f"🧠 Задача принята: \"{user_query}\"\n"
             f"🔀 Определена компетенция: *{role}*\n"
-            "📨 (очередь временно недоступна, задача не отправлена)"
+            f"{forward_msg}"
         )
     else:
         response = "❗ Пожалуйста, укажите запрос после команды /ask"
