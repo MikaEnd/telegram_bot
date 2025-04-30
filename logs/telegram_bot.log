@@ -686,3 +686,448 @@ Traceback (most recent call last):
   File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
     raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
 telegram.error.InvalidToken: The token `YOUR_TOKEN_HERE` was rejected by the server.
+2025-05-01 01:23:54,968 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:23:54,971 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:23:55,844 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:23:55,844 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:23:56,602 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:23:56,603 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:23:57,345 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:23:57,346 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:23:58,043 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:23:58,044 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:26:15,455 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:26:15,456 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:26:16,128 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:26:16,129 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:26:16,857 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:26:16,858 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:26:17,604 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:26:17,605 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:26:18,363 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 401 Unauthorized"
+2025-05-01 01:26:18,363 - telegram.ext - ERROR - Network Retry Loop (Bootstrap Initialize Application): Invalid token. Aborting retry loop.
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 835, in initialize
+    await self.get_me()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 1969, in get_me
+    return await super().get_me(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 967, in get_me
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 691, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 362, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 720, in _do_post
+    result = await request.post(
+             ^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 197, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/request/_baserequest.py", line 351, in _request_wrapper
+    raise InvalidToken(message)
+telegram.error.InvalidToken: Unauthorized
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 115, in network_retry_loop
+    if not await do_action():
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_utils/networkloop.py", line 93, in do_action
+    return await action_cb()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_application.py", line 486, in initialize
+    await self.bot.initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/ext/_extbot.py", line 308, in initialize
+    await super().initialize()
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/telegram/_bot.py", line 837, in initialize
+    raise InvalidToken(f"The token `{self._token}` was rejected by the server.") from exc
+telegram.error.InvalidToken: The token `8017633598:AAE0cYuZrUP8NNlRQF8eQFjQNEt7hxsgQMXYKxI` was rejected by the server.
+2025-05-01 01:28:21,752 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 01:28:21,803 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 01:28:21,804 - telegram.ext.Application - INFO - Application started
+2025-05-01 01:28:31,949 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:28:35,063 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:28:35,238 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 01:28:45,113 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:28:55,166 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:05,215 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:15,267 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:25,318 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:35,371 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:45,421 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:29:55,469 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 01:30:05,519 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
