@@ -2,10 +2,17 @@ import os
 import json
 import threading
 import logging
+import re
 from dotenv import load_dotenv
 import pika
 from telegram import Update
-from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    MessageHandler,
+    ContextTypes,
+    filters
+)
 from core.router import route_task
 from core.interfaces import send_task, RABBITMQ_URL, TASK_QUEUE
 
@@ -56,20 +63,33 @@ def consume_queue(app):
             msg = json.loads(body)
             chat_id = msg.get("chat_id")
             text = msg.get("text")
-            # Шаг уточнения деталей
             app.bot.send_message(
                 chat_id=chat_id,
-                text=f"📝 Я получил задачу: \"{text}\". Пожалуйста, уточните, если нужны детали."
+                text=(
+                    f"📝 Я получил задачу: \"{text}\".\n"
+                    "Пожалуйста, уточните, если нужны детали. (ответьте на это сообщение)"
+                )
             )
             channel.basic_ack(method_frame.delivery_tag)
     connection.close()
+
+async def handle_clarification(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    if update.message.reply_to_message and "📝 Я получил задачу:" in update.message.reply_to_message.text:
+        details = update.message.text
+        original = update.message.reply_to_message.text
+        m = re.search(r'Я получил задачу: "(.*)"', original)
+        task = m.group(1) if m else "<задача>"
+        await update.message.reply_text(
+            f"🛠️ Принял уточнение по задаче \"{task}\":\n\"{details}\"\nЗапускаю исполнителя..."
+        )
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("ask", ask))
+    app.add_handler(MessageHandler(filters.TEXT & filters.REPLY, handle_clarification))
 
-    # Запускаем фоновый поток-подписчик
+    # Фоновый поток для consumer-а
     consumer_thread = threading.Thread(target=consume_queue, args=(app,), daemon=True)
     consumer_thread.start()
 
