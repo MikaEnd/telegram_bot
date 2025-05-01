@@ -16,11 +16,9 @@ from telegram.ext import (
 from core.router import route_task
 from core.interfaces import send_task, RABBITMQ_URL, TASK_QUEUE
 
-# Загружаем переменные окружения
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# Логирование
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
@@ -52,13 +50,13 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(response, parse_mode="Markdown")
 
 def consume_queue(app):
-    parameters = pika.URLParameters(RABBITMQ_URL)
-    connection = pika.BlockingConnection(parameters)
-    channel = connection.channel()
-    channel.queue_declare(queue=TASK_QUEUE, durable=True)
-    channel.basic_qos(prefetch_count=1)
+    params = pika.URLParameters(RABBITMQ_URL)
+    conn = pika.BlockingConnection(params)
+    ch = conn.channel()
+    ch.queue_declare(queue=TASK_QUEUE, durable=True)
+    ch.basic_qos(prefetch_count=1)
 
-    def callback(ch, method, properties, body):
+    def callback(channel, method, props, body):
         msg = json.loads(body)
         chat_id = msg["chat_id"]
         text = msg["text"]
@@ -69,10 +67,10 @@ def consume_queue(app):
                 "Пожалуйста, уточните, если нужны детали. (ответьте на это сообщение)"
             )
         )
-        ch.basic_ack(method.delivery_tag)
+        channel.basic_ack(method.delivery_tag)
 
-    channel.basic_consume(queue=TASK_QUEUE, on_message_callback=callback)
-    channel.start_consuming()
+    ch.basic_consume(queue=TASK_QUEUE, on_message_callback=callback)
+    ch.start_consuming()
 
 async def handle_clarification(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message.reply_to_message and "📝 Я получил задачу:" in update.message.reply_to_message.text:
@@ -90,8 +88,8 @@ def main():
     app.add_handler(CommandHandler("ask", ask))
     app.add_handler(MessageHandler(filters.TEXT & filters.REPLY, handle_clarification))
 
-    consumer_thread = threading.Thread(target=consume_queue, args=(app,), daemon=True)
-    consumer_thread.start()
+    thread = threading.Thread(target=consume_queue, args=(app,), daemon=True)
+    thread.start()
 
     app.run_polling()
 
