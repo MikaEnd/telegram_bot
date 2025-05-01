@@ -3161,3 +3161,132 @@ pika.exceptions.AMQPConnectionError
 2025-05-01 04:00:21,289 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-05-01 04:00:31,339 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-05-01 04:00:41,388 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:00:51,446 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:01,496 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:11,548 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:21,597 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:31,646 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:41,698 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:01:51,748 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:01,799 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:11,862 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:21,913 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:31,963 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:42,012 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:02:52,065 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:00,944 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:00,946 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-05-01 04:03:00,946 - pika.adapters.utils.io_services_utils - INFO - Socket connected: <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 60040, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 04:03:00,946 - pika.adapters.utils.connection_workflow - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-01 04:03:00,949 - pika.adapters.utils.connection_workflow - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 04:03:00,949 - pika.adapters.utils.connection_workflow - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 04:03:00,949 - pika.adapters.blocking_connection - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 04:03:00,949 - pika.adapters.blocking_connection - INFO - Created channel=1
+2025-05-01 04:03:00,950 - pika.adapters.blocking_connection - INFO - Closing connection (200): Normal shutdown
+2025-05-01 04:03:00,950 - pika.channel - INFO - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-01 04:03:00,951 - pika.channel - INFO - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x77b6b0ff3320> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-01 04:03:00,951 - pika.connection - INFO - Closing connection (200): 'Normal shutdown'
+2025-05-01 04:03:00,951 - pika.adapters.utils.io_services_utils - INFO - Aborting transport connection: state=1; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 60040, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 04:03:00,951 - pika.adapters.utils.io_services_utils - INFO - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 60040, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 04:03:00,951 - pika.adapters.utils.io_services_utils - INFO - Deactivating transport: state=1; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 60040, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 04:03:00,952 - pika.connection - INFO - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2025-05-01 04:03:00,952 - pika.connection - INFO - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2025-05-01 04:03:00,952 - pika.adapters.utils.io_services_utils - INFO - Closing transport socket and unlinking: state=3; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 60040, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 04:03:00,952 - pika.adapters.blocking_connection - INFO - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2025-05-01 04:03:01,145 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 04:03:11,021 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:21,074 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:31,127 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:41,177 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:03:51,228 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:01,280 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:11,331 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:21,382 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:31,433 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:41,483 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:51,221 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:04:51,225 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-05-01 04:04:51,225 - telegram.ext.Application - INFO - Application.stop() complete
+2025-05-01 04:05:27,270 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-05-01 04:05:27,320 - pika.adapters.utils.io_services_utils - ERROR - Socket failed to connect: <socket.socket fd=10, family=10, type=1, proto=6, laddr=('::1', 53430, 0, 0)>; error=111 (Connection refused)
+2025-05-01 04:05:27,321 - pika.adapters.utils.connection_workflow - ERROR - TCP Connection attempt failed: ConnectionRefusedError(111, 'Connection refused'); dest=(<AddressFamily.AF_INET6: 10>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-05-01 04:05:27,321 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:05:27,321 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-01 04:05:27,321 - pika.adapters.utils.io_services_utils - ERROR - Socket failed to connect: <socket.socket fd=10, family=2, type=1, proto=6, laddr=('127.0.0.1', 59710)>; error=111 (Connection refused)
+2025-05-01 04:05:27,321 - pika.adapters.utils.connection_workflow - ERROR - TCP Connection attempt failed: ConnectionRefusedError(111, 'Connection refused'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-05-01 04:05:27,321 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:05:27,322 - pika.adapters.utils.connection_workflow - ERROR - AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused').
+2025-05-01 04:05:27,322 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:05:27,322 - pika.adapters.blocking_connection - ERROR - Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:05:27,322 - pika.adapters.blocking_connection - ERROR - Error in _create_connection().
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-05-01 04:05:27,564 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 04:05:27,612 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 04:05:27,614 - telegram.ext.Application - INFO - Application started
+2025-05-01 04:05:37,308 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:05:47,357 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:05:57,405 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:07,457 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:17,506 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:27,556 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:37,605 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:47,653 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:06:57,710 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:07,758 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:17,808 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:27,857 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:37,905 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:47,954 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:07:58,003 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:08,051 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:18,100 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:28,148 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:38,196 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:43,543 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:08:43,547 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-05-01 04:08:43,548 - telegram.ext.Application - INFO - Application.stop() complete
+2025-05-01 04:09:18,368 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-05-01 04:09:18,376 - pika.adapters.utils.io_services_utils - ERROR - Socket failed to connect: <socket.socket fd=10, family=10, type=1, proto=6, laddr=('::1', 42410, 0, 0)>; error=111 (Connection refused)
+2025-05-01 04:09:18,376 - pika.adapters.utils.connection_workflow - ERROR - TCP Connection attempt failed: ConnectionRefusedError(111, 'Connection refused'); dest=(<AddressFamily.AF_INET6: 10>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('::1', 5672, 0, 0))
+2025-05-01 04:09:18,376 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:09:18,376 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('127.0.0.1', 5672)
+2025-05-01 04:09:18,376 - pika.adapters.utils.io_services_utils - ERROR - Socket failed to connect: <socket.socket fd=10, family=2, type=1, proto=6, laddr=('127.0.0.1', 54654)>; error=111 (Connection refused)
+2025-05-01 04:09:18,376 - pika.adapters.utils.connection_workflow - ERROR - TCP Connection attempt failed: ConnectionRefusedError(111, 'Connection refused'); dest=(<AddressFamily.AF_INET: 2>, <SocketKind.SOCK_STREAM: 1>, 6, '', ('127.0.0.1', 5672))
+2025-05-01 04:09:18,377 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnector - reporting failure: AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:09:18,377 - pika.adapters.utils.connection_workflow - ERROR - AMQP connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused').
+2025-05-01 04:09:18,377 - pika.adapters.utils.connection_workflow - ERROR - AMQPConnectionWorkflow - reporting failure: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:09:18,377 - pika.adapters.blocking_connection - ERROR - Connection workflow failed: AMQPConnectionWorkflowFailed: 2 exceptions in all; last exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused'); first exception - AMQPConnectorSocketConnectError: ConnectionRefusedError(111, 'Connection refused')
+2025-05-01 04:09:18,377 - pika.adapters.blocking_connection - ERROR - Error in _create_connection().
+Traceback (most recent call last):
+  File "/home/avipython/telegram_bot/venv/lib/python3.12/site-packages/pika/adapters/blocking_connection.py", line 451, in _create_connection
+    raise self._reap_last_connection_workflow_error(error)
+pika.exceptions.AMQPConnectionError
+2025-05-01 04:09:18,682 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 04:09:18,734 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 04:09:18,735 - telegram.ext.Application - INFO - Application started
+2025-05-01 04:09:28,473 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:09:38,530 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:09:48,583 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:09:58,635 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:08,687 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:18,743 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:28,796 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:38,856 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:48,908 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:58,960 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:10:59,011 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 429 Too Many Requests"
+2025-05-01 04:10:59,012 - telegram.ext - INFO - Network Retry Loop (Polling Updates): Flood control exceeded. Retry in 5 seconds. Adding 0.5 seconds to the specified time.
+2025-05-01 04:11:29,803 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:11:39,855 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:11:49,908 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:11:59,960 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:12:10,013 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:12:20,065 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:12:30,119 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:12:40,172 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:12:50,224 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:13:00,277 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 04:13:10,330 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
