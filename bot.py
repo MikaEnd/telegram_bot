@@ -20,7 +20,7 @@ from core.interfaces import send_task, RABBITMQ_URL, TASK_QUEUE
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# Настройка логирования
+# Логирование
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
@@ -42,7 +42,6 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
         except Exception as e:
             logging.error(f"send_task failed: {e}", exc_info=True)
             forward_msg = "⚠️ Не удалось отправить задачу в очередь, попробуйте позже."
-
         response = (
             f"🧠 Задача принята: \"{user_query}\"\n"
             f"🔀 Определена компетенция: *{role}*\n"
@@ -50,7 +49,6 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
         )
     else:
         response = "❗ Пожалуйста, укажите запрос после команды /ask"
-
     await update.message.reply_text(response, parse_mode="Markdown")
 
 def consume_queue(app):
@@ -58,20 +56,23 @@ def consume_queue(app):
     connection = pika.BlockingConnection(parameters)
     channel = connection.channel()
     channel.queue_declare(queue=TASK_QUEUE, durable=True)
-    for method_frame, properties, body in channel.consume(TASK_QUEUE, inactivity_timeout=1):
-        if body:
-            msg = json.loads(body)
-            chat_id = msg.get("chat_id")
-            text = msg.get("text")
-            app.bot.send_message(
-                chat_id=chat_id,
-                text=(
-                    f"📝 Я получил задачу: \"{text}\".\n"
-                    "Пожалуйста, уточните, если нужны детали. (ответьте на это сообщение)"
-                )
+    channel.basic_qos(prefetch_count=1)
+
+    def callback(ch, method, properties, body):
+        msg = json.loads(body)
+        chat_id = msg["chat_id"]
+        text = msg["text"]
+        app.bot.send_message(
+            chat_id=chat_id,
+            text=(
+                f"📝 Я получил задачу: \"{text}\".\n"
+                "Пожалуйста, уточните, если нужны детали. (ответьте на это сообщение)"
             )
-            channel.basic_ack(method_frame.delivery_tag)
-    connection.close()
+        )
+        ch.basic_ack(method.delivery_tag)
+
+    channel.basic_consume(queue=TASK_QUEUE, on_message_callback=callback)
+    channel.start_consuming()
 
 async def handle_clarification(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message.reply_to_message and "📝 Я получил задачу:" in update.message.reply_to_message.text:
@@ -89,7 +90,6 @@ def main():
     app.add_handler(CommandHandler("ask", ask))
     app.add_handler(MessageHandler(filters.TEXT & filters.REPLY, handle_clarification))
 
-    # Фоновый поток для consumer-а
     consumer_thread = threading.Thread(target=consume_queue, args=(app,), daemon=True)
     consumer_thread.start()
 
