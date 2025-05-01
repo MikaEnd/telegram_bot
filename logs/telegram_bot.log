@@ -2738,3 +2738,48 @@ pika.exceptions.AMQPConnectionError
 2025-05-01 03:03:24,311 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-05-01 03:03:34,363 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
 2025-05-01 03:03:44,416 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:03:54,251 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:03:54,252 - telegram.ext.Application - INFO - Application is stopping. This might take a moment.
+2025-05-01 03:03:54,252 - telegram.ext.Application - INFO - Application.stop() complete
+2025-05-01 03:03:54,718 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-05-01 03:03:54,719 - pika.adapters.utils.io_services_utils - INFO - Socket connected: <socket.socket fd=4, family=10, type=1, proto=6, laddr=('::1', 40230, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:54,720 - pika.adapters.utils.connection_workflow - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db475be90>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db475be90> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-01 03:03:54,722 - pika.adapters.utils.connection_workflow - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db475be90> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:54,723 - pika.adapters.utils.connection_workflow - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db475be90> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:54,723 - pika.adapters.blocking_connection - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db475be90> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:54,723 - pika.adapters.blocking_connection - INFO - Created channel=1
+2025-05-01 03:03:54,870 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getMe "HTTP/1.1 200 OK"
+2025-05-01 03:03:54,921 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/deleteWebhook "HTTP/1.1 200 OK"
+2025-05-01 03:03:54,922 - telegram.ext.Application - INFO - Application started
+2025-05-01 03:03:58,944 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:03:58,946 - pika.adapters.utils.connection_workflow - INFO - Pika version 1.3.2 connecting to ('::1', 5672, 0, 0)
+2025-05-01 03:03:58,947 - pika.adapters.utils.io_services_utils - INFO - Socket connected: <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 52352, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:58,947 - pika.adapters.utils.connection_workflow - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2025-05-01 03:03:58,949 - pika.adapters.utils.connection_workflow - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:58,949 - pika.adapters.utils.connection_workflow - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:58,950 - pika.adapters.blocking_connection - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2025-05-01 03:03:58,950 - pika.adapters.blocking_connection - INFO - Created channel=1
+2025-05-01 03:03:58,951 - pika.adapters.blocking_connection - INFO - Closing connection (200): Normal shutdown
+2025-05-01 03:03:58,951 - pika.channel - INFO - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-01 03:03:58,952 - pika.channel - INFO - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x779db46f5cd0> params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2025-05-01 03:03:58,952 - pika.connection - INFO - Closing connection (200): 'Normal shutdown'
+2025-05-01 03:03:58,953 - pika.adapters.utils.io_services_utils - INFO - Aborting transport connection: state=1; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 52352, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:58,953 - pika.adapters.utils.io_services_utils - INFO - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 52352, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:58,953 - pika.adapters.utils.io_services_utils - INFO - Deactivating transport: state=1; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 52352, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:58,953 - pika.connection - INFO - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2025-05-01 03:03:58,954 - pika.connection - INFO - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2025-05-01 03:03:58,954 - pika.adapters.utils.io_services_utils - INFO - Closing transport socket and unlinking: state=3; <socket.socket fd=16, family=10, type=1, proto=6, laddr=('::1', 52352, 0, 0), raddr=('::1', 5672, 0, 0)>
+2025-05-01 03:03:58,954 - pika.adapters.blocking_connection - INFO - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<URLParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2025-05-01 03:03:59,066 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/sendMessage "HTTP/1.1 200 OK"
+2025-05-01 03:04:09,009 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:04:19,061 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:04:29,114 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:04:39,167 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:04:49,219 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:04:59,272 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:09,325 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:19,377 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:29,429 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:39,482 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:49,536 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
+2025-05-01 03:05:59,587 - httpx - INFO - HTTP Request: POST https://api.telegram.org/bot8017633598:AAE0cYuZrUP8NNlRQFjQNEt7hxsgQMXYKxI/getUpdates "HTTP/1.1 200 OK"
