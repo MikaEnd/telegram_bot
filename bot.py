@@ -13,8 +13,7 @@ from telegram.ext import (
     ContextTypes,
     filters
 )
-from core.router import route_task
-from core.interfaces import send_task, RABBITMQ_URL, TASK_QUEUE
+from geometry_backend.core.handlers.routing import get_handler_by_competence
 
 load_dotenv()
 BOT_TOKEN = os.getenv("BOT_TOKEN")
@@ -26,70 +25,43 @@ logging.basicConfig(
     filemode="a"
 )
 
+# Команда для проверки статуса
 async def status(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text("✅ Бот запущен и работает!")
 
+# Обработка запроса пользователя
 async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if context.args:
         user_query = " ".join(context.args)
         chat_id = update.effective_chat.id
-        role = route_task(user_query)
-        try:
-            send_task(role, user_query, chat_id)
-            forward_msg = "📨 Передал задачу в очередь, ожидайте результат."
-        except Exception as e:
-            logging.error(f"send_task failed: {e}", exc_info=True)
-            forward_msg = "⚠️ Не удалось отправить задачу в очередь, попробуйте позже."
-        response = (
-            f"🧠 Задача принята: \"{user_query}\"\n"
-            f"🔀 Определена компетенция: *{role}*\n"
-            f"{forward_msg}"
-        )
+        handler = get_handler_by_competence("менеджер")
+        if handler:
+            reply = await handler.handle(str(chat_id), user_query)
+        else:
+            reply = "⚠️ Не удалось найти менеджера для маршрутизации задачи."
     else:
-        response = "❗ Пожалуйста, укажите запрос после команды /ask"
-    await update.message.reply_text(response, parse_mode="Markdown")
+        reply = "❗ Пожалуйста, укажите запрос после команды /ask"
+    await update.message.reply_text(reply)
 
-def consume_queue(app):
-    params = pika.URLParameters(RABBITMQ_URL)
-    conn = pika.BlockingConnection(params)
-    ch = conn.channel()
-    ch.queue_declare(queue=TASK_QUEUE, durable=True)
-    ch.basic_qos(prefetch_count=1)
-
-    def callback(channel, method, props, body):
-        msg = json.loads(body)
-        chat_id = msg["chat_id"]
-        text = msg["text"]
-        app.bot.send_message(
-            chat_id=chat_id,
-            text=(
-                f"📝 Я получил задачу: \"{text}\".\n"
-                "Пожалуйста, уточните, если нужны детали. (ответьте на это сообщение)"
-            )
-        )
-        channel.basic_ack(method.delivery_tag)
-
-    ch.basic_consume(queue=TASK_QUEUE, on_message_callback=callback)
-    ch.start_consuming()
-
+# Обработка уточнений (если пользователь отвечает на задачу)
 async def handle_clarification(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.message.reply_to_message and "📝 Я получил задачу:" in update.message.reply_to_message.text:
         details = update.message.text
         original = update.message.reply_to_message.text
         m = re.search(r'Я получил задачу: "(.*)"', original)
         task = m.group(1) if m else "<задача>"
-        await update.message.reply_text(
-            f"🛠️ Принял уточнение по задаче \"{task}\":\n\"{details}\"\nЗапускаю исполнителя..."
-        )
+        handler = get_handler_by_competence("менеджер")
+        if handler:
+            reply = await handler.handle(str(update.effective_chat.id), details)
+        else:
+            reply = f"⚠️ Не удалось найти обработчик для уточнения задачи."
+        await update.message.reply_text(reply)
 
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("status", status))
     app.add_handler(CommandHandler("ask", ask))
     app.add_handler(MessageHandler(filters.TEXT & filters.REPLY, handle_clarification))
-
-    thread = threading.Thread(target=consume_queue, args=(app,), daemon=True)
-    thread.start()
 
     app.run_polling()
 
